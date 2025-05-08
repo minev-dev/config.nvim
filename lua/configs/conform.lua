@@ -4,7 +4,7 @@ local options = {
     rust = { "rustfmt" },
     python = { "ruff", "ruff_format" },
     terraform = { "terraform_fmt" },
-    -- markdown = { "prettier" },
+    markdown = { "prettier" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
