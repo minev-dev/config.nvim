@@ -3,6 +3,7 @@ local options = {
     lua = { "stylua" },
     rust = { "rustfmt" },
     python = { "ruff", "ruff_format" },
+    terraform = { "terraform_fmt" },
     -- markdown = { "prettier" },
     -- css = { "prettier" },
     -- html = { "prettier" },

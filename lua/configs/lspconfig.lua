@@ -5,5 +5,6 @@ local servers = {
   "cssls",
   "pyright",
   "marksman",
+  "terraformls",
 }
 vim.lsp.enable(servers)
