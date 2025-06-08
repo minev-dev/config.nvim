@@ -8,6 +8,10 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+vim.g.clipboard = "osc52"
+map("n", "<leader>y", '"+y')
+vim.g.clipboard = require("vim.ui.clipboard.osc52").tool
+
 -- Show references
 map("n", "grr", ':lua require("telescope.builtin").lsp_references()<CR>', { noremap = true, silent = true })
 map("n", "ga", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
