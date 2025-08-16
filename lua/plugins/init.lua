@@ -32,6 +32,9 @@ return {
     lazy = false, -- OR lazy = true (for lazy loading)
   },
   {
+    "ojroques/nvim-osc52",
+  },
+  {
     "mrcjkb/rustaceanvim",
     version = "^6", -- Recommended
     lazy = false, -- This plugin is already lazy
@@ -74,7 +77,7 @@ return {
       "neovim/nvim-lspconfig",
       "mfussenegger/nvim-dap",
       "mfussenegger/nvim-dap-python", --optional
-      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+      { "nvim-telescope/telescope.nvim", branch = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
     },
     lazy = false,
     branch = "regexp", -- This is the regexp branch, use this for the new version

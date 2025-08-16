@@ -16,6 +16,10 @@ vim.g.clipboard = require("vim.ui.clipboard.osc52").tool
 map("n", "grr", ':lua require("telescope.builtin").lsp_references()<CR>', { noremap = true, silent = true })
 map("n", "ga", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 
+-- Clipboard
+map("n", "<leader>y", require("osc52").copy_operator, { expr = true })
+map("v", "<leader>y", require("osc52").copy_visual)
+
 -- In your init.lua
 -- vim.keymap.set("n", "<leader>h", "<C-W>h", { noremap = true, silent = true, desc = "Move to left window" })
 -- vim.keymap.set("n", "<leader>j", "<C-W>j", { noremap = true, silent = true, desc = "Move to lower window" })
@@ -45,62 +49,64 @@ end, { noremap = true, silent = true, desc = "Toggle horizontal terminal" })
 --   term_toggle { pos = "float", id = "custom_floating_term", size = { width = 0.8, height = 0.8 } } -- Adjust size as needed
 -- end, { noremap = true, silent = true, desc = "Toggle floating terminal" })
 
-require('gitsigns').setup{
+require("gitsigns").setup {
   on_attach = function(bufnr)
-    local gitsigns = require('gitsigns')
+    local gitsigns = require "gitsigns"
 
     -- Navigation
-    map('n', ']c', function()
+    map("n", "]c", function()
       if vim.wo.diff then
-        vim.cmd.normal({']c', bang = true})
+        vim.cmd.normal { "]c", bang = true }
       else
-        gitsigns.nav_hunk('next')
+        gitsigns.nav_hunk "next"
       end
     end)
 
-    map('n', '[c', function()
+    map("n", "[c", function()
       if vim.wo.diff then
-        vim.cmd.normal({'[c', bang = true})
+        vim.cmd.normal { "[c", bang = true }
       else
-        gitsigns.nav_hunk('prev')
+        gitsigns.nav_hunk "prev"
       end
     end)
 
     -- Actions
-    map('n', '<leader>hs', gitsigns.stage_hunk)
-    map('n', '<leader>hr', gitsigns.reset_hunk)
+    map("n", "<leader>hs", gitsigns.stage_hunk)
+    map("n", "<leader>hr", gitsigns.reset_hunk)
 
-    map('v', '<leader>hs', function()
-      gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    map("v", "<leader>hs", function()
+      gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
     end)
 
-    map('v', '<leader>hr', function()
-      gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    map("v", "<leader>hr", function()
+      gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
     end)
 
-    map('n', '<leader>hS', gitsigns.stage_buffer)
-    map('n', '<leader>hR', gitsigns.reset_buffer)
-    map('n', '<leader>hp', gitsigns.preview_hunk)
-    map('n', '<leader>hi', gitsigns.preview_hunk_inline)
+    map("n", "<leader>hS", gitsigns.stage_buffer)
+    map("n", "<leader>hR", gitsigns.reset_buffer)
+    map("n", "<leader>hp", gitsigns.preview_hunk)
+    map("n", "<leader>hi", gitsigns.preview_hunk_inline)
 
-    map('n', '<leader>hb', function()
-      gitsigns.blame_line({ full = true })
+    map("n", "<leader>hb", function()
+      gitsigns.blame_line { full = true }
     end)
 
-    map('n', '<leader>hd', gitsigns.diffthis)
+    map("n", "<leader>hd", gitsigns.diffthis)
 
-    map('n', '<leader>hD', function()
-      gitsigns.diffthis('~')
+    map("n", "<leader>hD", function()
+      gitsigns.diffthis "~"
     end)
 
-    map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
-    map('n', '<leader>hq', gitsigns.setqflist)
+    map("n", "<leader>hQ", function()
+      gitsigns.setqflist "all"
+    end)
+    map("n", "<leader>hq", gitsigns.setqflist)
 
     -- Toggles
-    map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-    map('n', '<leader>tw', gitsigns.toggle_word_diff)
+    map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
+    map("n", "<leader>tw", gitsigns.toggle_word_diff)
 
     -- Text object
-    map({'o', 'x'}, 'ih', gitsigns.select_hunk)
-  end
+    map({ "o", "x" }, "ih", gitsigns.select_hunk)
+  end,
 }
