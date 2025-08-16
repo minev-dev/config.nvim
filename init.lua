@@ -37,16 +37,16 @@ vim.schedule(function()
 end)
 
 -- Disable nvim_lsp.CompletionItemKind.Text
-require("cmp").setup({
+require("cmp").setup {
   sources = {
     {
       name = "nvim_lsp",
       entry_filter = function(entry)
         return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
-      end
+      end,
     },
   },
-})
+}
 
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*", -- Match all events
@@ -56,10 +56,16 @@ vim.api.nvim_create_autocmd("VimEnter", {
     if nvimtree_status then
       -- Use a small delay to ensure the UI is ready
       vim.defer_fn(function()
-        vim.cmd("NvimTreeOpen")
+        vim.cmd "NvimTreeOpen"
       end, 10) -- 10ms delay, adjust if needed
     end
   end,
   desc = "Auto open NvimTree on startup",
 })
 
+-- lualine
+require("lualine").setup {
+  sections = {
+    lualine_c = { { "filename", path = 1 } },
+  },
+}

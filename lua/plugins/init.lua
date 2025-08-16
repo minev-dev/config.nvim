@@ -40,6 +40,10 @@ return {
     lazy = false, -- This plugin is already lazy
   },
   {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
     "kdheepak/lazygit.nvim",
     lazy = true,
     cmd = {
