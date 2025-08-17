@@ -66,6 +66,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
 -- lualine
 require("lualine").setup {
   sections = {
-    lualine_c = { { "filename", path = 1 } },
+    lualine_c = {
+      {
+        "filename",
+        path = 1,
+      },
+      {
+        "lsp_status",
+      },
+    },
   },
 }
