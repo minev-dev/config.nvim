@@ -27,6 +27,10 @@ return {
     },
   },
   {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+  },
+  {
     "folke/which-key.nvim",
     dependencies = { "nvim-lua/plenary.nvim" }, -- Ensure you also have plenary.nvim installed
     lazy = false, -- OR lazy = true (for lazy loading)
