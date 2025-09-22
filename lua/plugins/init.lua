@@ -79,18 +79,13 @@ return {
     "linux-cultist/venv-selector.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
-      "mfussenegger/nvim-dap",
-      "mfussenegger/nvim-dap-python", --optional
-      { "nvim-telescope/telescope.nvim", branch = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
     },
-    lazy = false,
-    branch = "regexp", -- This is the regexp branch, use this for the new version
+    ft = "python", -- Load when opening Python files
     keys = {
       { "<leader>vs", "<cmd>VenvSelect<cr>" },
     },
-    ---@type venv-selector.Config
-    opts = {
-      -- Your settings go here
+    opts = { -- this can be an empty lua table - just showing below for clarity.
     },
   },
 }
