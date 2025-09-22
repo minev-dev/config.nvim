@@ -1,7 +1,6 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    rust = { "rustfmt" },
     python = { "ruff", "ruff_format" },
     terraform = { "terraform_fmt" },
     markdown = { "prettier" },
