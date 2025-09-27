@@ -44,6 +44,9 @@ map({ "n", "t" }, "<leader>th", function()
   term_toggle { pos = "sp", id = "custom_horizontal_term", size = 0.3 }
 end, { noremap = true, silent = true, desc = "Toggle horizontal terminal" })
 
+-- Unmap <leader>th in terminal mode
+vim.keymap.del("t", "<leader>th")
+
 -- Remap floating terminal toggle to <leader>tf
 -- map({ "n", "t" }, "<leader>tf", function()
 --   term_toggle { pos = "float", id = "custom_floating_term", size = { width = 0.8, height = 0.8 } } -- Adjust size as needed
