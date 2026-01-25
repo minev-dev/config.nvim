@@ -1,3 +1,5 @@
+# Deprecated. Use https://github.com/minev-dev/dotfiles
+
 # My NeoVim config
 
 ## Installation
